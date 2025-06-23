@@ -1,9 +1,12 @@
+    const { expect } = require("@playwright/test");
+
 exports.loginPage = class loginPage {
     constructor(page) {
         this.page = page;
         this.usernameInput = 'input[placeholder="Username"]';
         this.passwordInput = 'input[name="password"]';
         this.hitButton = '//button[@type="submit"]';
+        this.assertURL = '/web/index.php/dashboard/index'
         this.errormsg = '//p[text()="Invalid credentials"]';
     }
 
@@ -15,5 +18,7 @@ exports.loginPage = class loginPage {
         await this.page.fill(this.passwordInput, password);
         await this.page.click(this.hitButton);
     }
-
+    async loginsuccess(){
+        await expect(this.page).toHaveURL('https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index')
+    }
 }
