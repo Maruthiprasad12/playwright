@@ -13,4 +13,5 @@ exports.PimMenu=class PimMenu{
         await this.page.click(this.Pim);
         await expect(this.page).toBeVisible(this.Pimmenu())
     }
+    async 
 }
