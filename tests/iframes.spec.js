@@ -1,5 +1,23 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, chromium } from '@playwright/test';
 
+test('working with Iframes', async () => {
+  const browser = await chromium.launch();
+  const context = await browser.newContext();
+  const page = await context.newPage();
 
-test('working with Iframes', async({page})=>{
-})
+  // Navigate to the page
+  await page.goto('https://jqueryui.com/checkboxradio/');
+
+  // Locate the iframe and interact with the element inside
+  const frame = page.frameLocator('.demo-frame');
+
+  // Assert the radio button exists before clicking (optional but recommended)
+  const radioButton = frame.locator('#radio-3');
+  await expect(radioButton).toBeVisible({ timeout: 5000 });
+
+  // Check the radio button
+  await radioButton.check();
+
+  // Cleanup
+  await browser.close();
+});
