@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test"
 const { chromium } = require('playwright');
 
-test('working on links ', async () => {
+test('working on links ', async () => { 
     const browser = await chromium.launch();
     const context = await browser.newContext();
     const page = await context.newPage();
