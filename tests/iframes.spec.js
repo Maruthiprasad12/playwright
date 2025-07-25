@@ -1,11 +1,12 @@
-import { test, expect, chromium } from '@playwright/test';
+import { test, expect } from '@playwright/test';
+import { chromium, firefox, webkit } from 'playwright';
 
 test('working with Iframes', async () => {
-  const browser = await chromium.launch();
-  const context = await browser.newContext();
-  const page = await context.newPage();
-
-  // Navigate to the page
+ for (const browserType of [chromium, firefox, webkit]) {
+      const browser = await browserType.launch()
+      const context = await browser.newContext()
+      const page = await context.newPage()
+      // Navigate to the page
   await page.goto('https://jqueryui.com/checkboxradio/');
 
   // Locate the iframe and interact with the element inside
@@ -19,5 +20,5 @@ test('working with Iframes', async () => {
   await radioButton.check();
 
   // Cleanup
-  await browser.close();
+  await browser.close();}
 });
