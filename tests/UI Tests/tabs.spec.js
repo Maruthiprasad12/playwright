@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
-test.describe('working on web elements in DOM', async () => {
-    test('working with tabs elements', async ({ page }) => {
+test.describe('working on web elements in DOM', async() => {
+    
+    test('working with tabs elements', async({ page }) => {
         await page.goto('https://the-internet.herokuapp.com/windows')
         const [newTab] = await Promise.all([
             page.waitForEvent('popup'),

@@ -1,6 +1,6 @@
 import{ test, expect } from '@playwright/test';
-import { loginPage } from '../pages/loginpage';
-import { logindata } from '../testdata/login.json'
+import { loginPage } from '../../pages/loginpage';
+import { logindata } from '../../testdata/login.json'
 
 
 test('login with valid creds',async({page})=>{

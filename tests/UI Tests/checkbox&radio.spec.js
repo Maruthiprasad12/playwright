@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import logindata from "../testdata/login.json"
+import logindata from "../../testdata/login.json"
 
 // test('working with checkboxes',async({page})=>{
 //     await page.goto('https://register.rediff.com/register/register.php?FormName=user_details')
