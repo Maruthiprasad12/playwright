@@ -27,7 +27,7 @@ test('Click Yes inside nested iframe (JS)', async ({ page }) => {
   await yesButton.click({force : true })
 })
     test('Iframe examples2', async ({ page }) => {
-        await page.goto('https://ui.vision/demo/webtest/frames/')
+        await page.goto('                                                                                                                                                   ')
         const frame = await page.frame({ url: 'https://ui.vision/demo/webtest/frames/frame_3.html' });
         const childlocator = await frame.childFrames()
         console.log(childlocator.length)
