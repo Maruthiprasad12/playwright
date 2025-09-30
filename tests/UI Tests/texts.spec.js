@@ -4,6 +4,7 @@ test.describe("working with text element", async () => {
     //         await page.goto("https://www.amazon.in/")
     //     })
     test('working with texts', async ({ page }) => {
+        await page.goto("https://www.amazon.in/")
         await expect(page.locator('(//a[@class="nav-a  "])[6]')).toHaveText('Mobiles')
         const textvalue = await page.locator('(//a[@class="nav-a  "])[9]').textContent()
         console.log(textvalue)

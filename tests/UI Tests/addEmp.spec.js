@@ -5,8 +5,8 @@ import empdata from "../../testdata/addemp.json"
 
 test('add employee', async ({page}) => {
    await page.goto("/web/index.php/auth/login")
-   await page.locator('input[placeholder="Username"]').fill(logindata.username)
-   await page.locator('input[name="password"]').fill(logindata.password)
+   await page.locator('input[placeholder="Username"]').fill(process.env.orangeHRM_Username)
+   await page.locator('input[name="password"]').fill(process.env.orangeHRM_Password)
    await page.locator('//button[@type="submit"]').click()
    await page.locator('//span[text()="PIM"]').click()
    await page.getByText('Add Employee').click()
