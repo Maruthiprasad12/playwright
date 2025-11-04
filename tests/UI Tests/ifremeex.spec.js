@@ -3,6 +3,7 @@ test.describe('iframes', async () => {
     test('Iframe exapmples', async ({ page }) => {
         await page.goto('https://ui.vision/demo/webtest/frames/')
         await page.frameLocator('//frame[@src="frame_2.html"]').locator('//input[@name="mytext2"]').fill("Maruthi")
+        await page.frameLocator('frame[src="frame_3.html"]').frameLocator('iframe[src="https://docs.google.com/forms/d/1yfUq-GO9BEssafd6TvHhf0D6QLDVG3q5InwNE2FFFFQ/viewform?embedded=true"]').locator('div[class="AB7Lab Id5V1"]').first().check()
 
     })
 
@@ -11,7 +12,9 @@ test.describe('iframes', async () => {
         const frame = await page.frame({ url: 'https://ui.vision/demo/webtest/frames/frame_3.html' });
         const childlocator = await frame.childFrames()
         console.log(childlocator.length)
-        await childlocator[0].locator('#i21').check()
+        await childlocator[0].locator('#i21').click()
+        await page.close()
+
 
     })
 
@@ -29,10 +32,11 @@ test('Click Yes inside nested iframe (JS)', async ({ page }) => {
     test('Iframe examples2', async ({ page }) => {
         await page.goto('                                                                                                                                                   ')
         const frame = await page.frame({ url: 'https://ui.vision/demo/webtest/frames/frame_3.html' });
-        const childlocator = await frame.childFrames()
-        console.log(childlocator.length)
-        await childlocator[0].locator('//span[text()="Yes"]').click({force : true}) 
-
+        // const childlocator = await frame.childFrames()
+        // console.log(childlocator.length)
+        // await childlocator[0].locator('//span[text()="Yes"]').click({force : true}) 
+        
+// div[class="uHMk6b fsHoPb"]
     })
 
 })
