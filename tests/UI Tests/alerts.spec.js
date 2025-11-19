@@ -14,6 +14,7 @@ test.describe("working with Alerts-popups", async () => {
 
         await page.locator('//div[@class="example"]/ul/li/button[text()="Click for JS Alert"]').click();
         await page.waitForTimeout(1000);
+        await page.close()
     });
     test("working with confirm alert", async ({ page }) => {
         page.on("dialog", async (dialog) => {
@@ -22,6 +23,7 @@ test.describe("working with Alerts-popups", async () => {
             await dialog.accept();
         });
         await page.getByText("Click for JS Confirm").click();
+        await page.close()
     });
     test("working with cancell-confirm alert", async ({ page }) => {
         page.on("dialog", async (dialog) => {
@@ -30,6 +32,7 @@ test.describe("working with Alerts-popups", async () => {
             await dialog.dismiss();
         });
         await page.getByText("Click for JS Confirm").click();
+        await page.close()
     });
     test("working with accept-prompt alert", async ({ page }) => {
         page.on("dialog", async (dialog) => {
@@ -38,6 +41,7 @@ test.describe("working with Alerts-popups", async () => {
             await dialog.accept("Maruthi");
         });
         await page.locator('button[onclick="jsPrompt()"]').click();
+        await page.close()
     });
     test("working with cancel   -prompt alert", async ({ page }) => {
         page.on("dialog", async (dialog) => {
@@ -46,6 +50,7 @@ test.describe("working with Alerts-popups", async () => {
             await dialog.dismiss();
         });
         await page.locator('button[onclick="jsPrompt()"]').click();
+        await page.close()
     });
 
 });
